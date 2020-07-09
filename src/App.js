@@ -2,21 +2,15 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import NavigationMenu from "./components/NavigationMenu";
-import MainCarousel from "./components/MainCarousel";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import Homepage from "./views/Homepage";
 
 function App() {
   return (
     <Container>
       <Header />
       <NavigationMenu />
-
-      <Row className="main-content">
-        <Col lg={8}>
-          <MainCarousel />
-        </Col>
-        <Col lg={4}>Test</Col>
-      </Row>
+      <Homepage />
     </Container>
   );
 }
