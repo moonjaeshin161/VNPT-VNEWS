@@ -1,29 +1,28 @@
 import React from "react";
-import { Container, Col, Row, Card } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 
 const Cards = () => {
   return (
     <Container>
       <Col>
+        <Row >
+          <img
+            style={{ borderRadius: 15 }}
+            width='320'
+            height='200'
+            src="https://picsum.photos/350/200"
+            alt="news"
+            className='mb-3'
+          />
+        </Row>
         <Row>
-          <Card>
-            <img
-              className="card-img-top"
-              src="https://picsum.photos/300/300"
-              alt="news"
-            />
+          <div className='font-weight-bold' style={{ fontSize: 18 }}>Test</div>
+        </Row>
+        <Row style={{ height: 40 }} className="align-items-center justify-content-between">
+          <div style={{ fontSize: 12 }} >Báo bóng đá</div>
+          <div style={{ fontSize: 12 }} >48 phút trước</div>
+          <div style={{ fontSize: 12 }} >Icon</div>
 
-            <div className="card-block">
-              <h4 className="card-title">Tawshif Ahsan Khan</h4>
-            </div>
-
-            <div className="card-footer">
-              <span className="float-right">Joined in 2013</span>
-              <span>
-                <i className=""></i>75 Friends
-              </span>
-            </div>
-          </Card>
         </Row>
       </Col>
     </Container>

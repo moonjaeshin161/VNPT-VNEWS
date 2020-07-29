@@ -1,0 +1,16 @@
+.item-container{
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: #C0C0C0;
+    font-weight: 500;
+}
+
+.item-container-title:hover{
+    background-color: 	#1E90FF;
+    padding: 2px 8px;
+    color: white;
+    cursor: pointer;
+    
+}

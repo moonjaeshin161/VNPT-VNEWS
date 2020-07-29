@@ -5,6 +5,7 @@ import Cards from "../components/Cards";
 import MainCarousel from "../components/MainCarousel";
 
 const Homepage = () => {
+
   return (
     <Row className="main-content">
       <Col lg={8}>
