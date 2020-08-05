@@ -1,28 +1,18 @@
 import React from "react";
 import {
-  Container,
-  Navbar,
-  Form,
-  FormControl,
-  Button,
-  Nav,
+  Row,
 } from "react-bootstrap";
+
 import Logo from "../assets/images/vnews_logo.svg";
+
+import SearchBar from "./SearchBar";
 
 const Header = () => {
   return (
-    <Container>
-      <Navbar bg="light" variant="light">
-        <Navbar.Brand href="#home">
-          <img src={Logo} className="d-inline-block align-top" alt="vnews" />
-        </Navbar.Brand>
-        <Nav className="mr-auto"></Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-primary">Search</Button>
-        </Form>
-      </Navbar>
-    </Container>
+    <Row className='pt-2 pb-2 justify-content-between' >
+      <img src={Logo} width='100' alt="vnews" />
+      <SearchBar />
+    </Row>
   );
 };
 

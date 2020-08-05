@@ -1,0 +1,20 @@
+.input-container{
+    border: 1px solid gray;
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding-left: 10px ;    
+    padding-right: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input{
+    border: none;
+    border-width: 0; 
+}
+
+.search-input:focus{
+    outline: none;
+}
