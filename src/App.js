@@ -59,34 +59,56 @@ const App = () => {
   }
 
   const getNewsByCate = async () => {
-    const socialResponse = await httpService.getNewsByCate(CONST.CATE_ID.XA_HOI);
-    const economyResponse = await httpService.getNewsByCate(CONST.CATE_ID.KINH_TE);
-    const lifestyleResponse = await httpService.getNewsByCate(CONST.CATE_ID.DOI_SONG);
-    const videoResponse = await httpService.getNewsByCate(CONST.CATE_ID.VIDEO);
-    const imageResponse = await httpService.getNewsByCate(CONST.CATE_ID.TIN_ANH);
-    const worldResponse = await httpService.getNewsByCate(CONST.CATE_ID.THE_GIOI);
-    const leisureResponse = await httpService.getNewsByCate(CONST.CATE_ID.GIAI_TRI);
-    const sportResponse = await httpService.getNewsByCate(CONST.CATE_ID.THE_THAO);
-    const healthResponse = await httpService.getNewsByCate(CONST.CATE_ID.SUC_KHOE);
-    const techResponse = await httpService.getNewsByCate(CONST.CATE_ID.CONG_NGHE);
-    const confideResponse = await httpService.getNewsByCate(CONST.CATE_ID.TAM_SU);
-    const carResponse = await httpService.getNewsByCate(CONST.CATE_ID.XE_360);
-    const educationResponse = await httpService.getNewsByCate(CONST.CATE_ID.GIAO_DUC);
-    const superInfoResponse = await httpService.getNewsByCate(CONST.CATE_ID.SUPER_INFO);
-    await setSocialNews(socialResponse.data);
-    await setEconomicNews(economyResponse.data);
-    await setLifestyleNews(lifestyleResponse.data);
-    await setVideoNews(videoResponse.data);
-    await setImageNews(imageResponse.data);
-    await setWorldNews(worldResponse.data);
-    await setLeisureNews(leisureResponse.data);
-    await setSportNews(sportResponse.data);
-    await setHealthNews(healthResponse.data);
-    await setTechNews(techResponse.data);
-    await setConfideNews(confideResponse.data);
-    await setCarNews(carResponse.data);
-    await setEducationNews(educationResponse.data);
-    await setSuperInfoNews(superInfoResponse.data);
+
+    const [
+      socialResponse,
+      economyResponse,
+      lifestyleResponse,
+      videoResponse,
+      imageResponse,
+      worldResponse,
+      leisureResponse,
+      sportResponse,
+      healthResponse,
+      techResponse,
+      confideResponse,
+      carResponse,
+      educationResponse,
+      superInfoResponse
+    ] = await Promise.all([
+      httpService.getNewsByCate(CONST.CATE_ID.XA_HOI),
+      httpService.getNewsByCate(CONST.CATE_ID.KINH_TE),
+      httpService.getNewsByCate(CONST.CATE_ID.DOI_SONG),
+      httpService.getNewsByCate(CONST.CATE_ID.VIDEO),
+      httpService.getNewsByCate(CONST.CATE_ID.TIN_ANH),
+      httpService.getNewsByCate(CONST.CATE_ID.THE_GIOI),
+      httpService.getNewsByCate(CONST.CATE_ID.GIAI_TRI),
+      httpService.getNewsByCate(CONST.CATE_ID.THE_THAO),
+      httpService.getNewsByCate(CONST.CATE_ID.SUC_KHOE),
+      httpService.getNewsByCate(CONST.CATE_ID.CONG_NGHE),
+      httpService.getNewsByCate(CONST.CATE_ID.TAM_SU),
+      httpService.getNewsByCate(CONST.CATE_ID.XE_360),
+      httpService.getNewsByCate(CONST.CATE_ID.GIAO_DUC),
+      httpService.getNewsByCate(CONST.CATE_ID.SUPER_INFO)
+    ]);
+
+    await Promise.all([
+      setSocialNews(socialResponse.data),
+      setEconomicNews(economyResponse.data),
+      setLifestyleNews(lifestyleResponse.data),
+      setVideoNews(videoResponse.data),
+      setImageNews(imageResponse.data),
+      setWorldNews(worldResponse.data),
+      setLeisureNews(leisureResponse.data),
+      setSportNews(sportResponse.data),
+      setHealthNews(healthResponse.data),
+      setTechNews(techResponse.data),
+      setConfideNews(confideResponse.data),
+      setCarNews(carResponse.data),
+      setEducationNews(educationResponse.data),
+      setSuperInfoNews(superInfoResponse.data),
+    ]);
+
 
   }
 
