@@ -18,5 +18,22 @@ export const CONST = {
         VIDEO: 41,
         TIN_ANH: 42,
         TAM_SU: 3811
+    },
+    CATE_ROUTE: {
+        30: 'superinfo',
+        31: 'xa-hoi',
+        32: 'the-gioi',
+        33: 'giao-duc',
+        34: 'kinh-te',
+        35: 'giai-tri',
+        36: 'the-thao',
+        37: 'cong-nghe',
+        38: 'xe-360',
+        39: 'suc-khoe',
+        40: 'doi-song',
+        41: 'video',
+        42: 'tin-anh',
+        3811: 'tam-su'
+
     }
 }

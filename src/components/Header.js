@@ -10,7 +10,9 @@ import SearchBar from "./SearchBar";
 const Header = () => {
   return (
     <Row className='pt-2 pb-2 justify-content-between' >
-      <img src={Logo} width='100' alt="vnews" />
+      <a href='/'>
+        <img src={Logo} width='100' alt="vnews" />
+      </a>
       <SearchBar />
     </Row>
   );

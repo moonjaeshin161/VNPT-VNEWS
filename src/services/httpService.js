@@ -87,8 +87,9 @@ export const httpService = {
         return fetch(url, options).then(res => res.json());
     },
 
-    getNewsByCate: async (cateID) => {
-        const params = `page=1&pageSize=3&orderType=0&cateId=${cateID}`;
+    getNewsByCate: async (cateID, _params) => {
+        let defaultParams = `page=1&pageSize=3&orderType=0&cateId=${cateID}`;
+        const params = _params ? _params : defaultParams;
         let time = Date.now();
         const unharshedCode = `${params}#${CONST.SECURE_CODE}@${time}!web`;
         const harshedCode = sha256(md5(unharshedCode));

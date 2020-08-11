@@ -4,10 +4,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList, faEllipsisH, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import './styles/NavigationMenu.css'
+import { Link } from "react-router-dom";
+import { CONST } from "../const";
 
-const NavagationItem = ({ children }) => {
+const NavagationItem = ({ children, cateId }) => {
   return (
-    <div className='item-container item-container-title'> {children}</div>
+    <Link to={{
+      pathname: `/${CONST.CATE_ROUTE[cateId]}`,
+      state: {
+        name: children,
+        cateId
+      }
+    }}
+    >
+      <div className='item-container item-container-title'> {children}</div>
+    </Link>
   );
 }
 
@@ -17,7 +28,7 @@ const MainList = ({ mainCateList, setShowMainList }) => {
       <FontAwesomeIcon icon={faList} className='item-container' style={{ fontSize: 20 }} />
       {
         mainCateList && mainCateList.map((item, index) => (
-          <NavagationItem key={index}>{item.name}</NavagationItem>
+          <NavagationItem cateId={item.cateId} key={index}>{item.name}</NavagationItem>
         ))
       }
       <FontAwesomeIcon icon={faEllipsisH} className='item-container' style={{ fontSize: 20 }} onClick={() => setShowMainList(false)} />
@@ -31,7 +42,7 @@ const SubList = ({ subCateList, setShowMainList }) => {
       <FontAwesomeIcon icon={faArrowLeft} className='item-container' style={{ fontSize: 20 }} onClick={() => setShowMainList(true)} />
       {
         subCateList && subCateList.map((item, index) => (
-          <NavagationItem key={index}>{item.name}</NavagationItem>
+          <NavagationItem cateId={item.cateId} key={index}>{item.name}</NavagationItem>
         ))
       }
     </Row>

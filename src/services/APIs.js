@@ -1,4 +1,4 @@
-const BASE_URL = 'http://123.31.36.193:8080/api/';
+const BASE_URL = 'https://api.digitoday.vn/api/';
 
 export const API = {
     GET_CATE_LIST: BASE_URL + 'getCateList',
