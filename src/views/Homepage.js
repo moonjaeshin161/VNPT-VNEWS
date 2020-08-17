@@ -5,9 +5,9 @@ import { CONST } from "../const";
 
 import Title from "../components/Title";
 import MainCarousel from "../components/MainCarousel";
-import VerticalNews from "../components/VerticalNews";
-import HorizontalNews from "../components/HorizontalNews";
+
 import { httpService } from "../services/httpService";
+import { NewsItem } from "../components/NewsItem";
 
 const Homepage = () => {
 
@@ -108,7 +108,7 @@ const Homepage = () => {
           </Row>
           {
             trendingNews && trendingNews.map((item, index) => (
-              <HorizontalNews item={item} key={index} />
+              <NewsItem item={item} key={index} direction='horizontal' />
             ))
           }
 
@@ -117,7 +117,7 @@ const Homepage = () => {
           </Row>
           {
             latestNews && latestNews.map((item, index) => (
-              <HorizontalNews item={item} key={index} />
+              <NewsItem item={item} key={index} direction='horizontal' />
             ))
           }
 
@@ -126,7 +126,7 @@ const Homepage = () => {
           </Row>
           {
             socialNews && socialNews.map((item, index) => (
-              <HorizontalNews item={item} key={index} />
+              <NewsItem item={item} key={index} direction='horizontal' />
             ))
           }
 
@@ -135,7 +135,7 @@ const Homepage = () => {
           </Row>
           {
             economicNews && economicNews.map((item, index) => (
-              <HorizontalNews item={item} key={index} />
+              <NewsItem item={item} key={index} direction='horizontal' />
             ))
           }
 
@@ -144,7 +144,7 @@ const Homepage = () => {
           </Row>
           {
             lifestyleNews && lifestyleNews.map((item, index) => (
-              <HorizontalNews item={item} key={index} />
+              <NewsItem item={item} key={index} direction='horizontal' />
             ))
           }
 
@@ -156,7 +156,7 @@ const Homepage = () => {
             <Title title='Tin video' />
             {
               videoNews && videoNews.map((item, index) => (
-                <VerticalNews item={item} key={index} />
+                <NewsItem item={item} key={index} direction='vertical' />
               ))
             }
           </section>
@@ -182,8 +182,8 @@ const Homepage = () => {
           <Title title='Thế giới' />
           {
             worldNews && worldNews.map((item, index) => {
-              if (index === 0) return <VerticalNews item={item} key={index} />
-              else return <HorizontalNews item={item} key={index} />
+              if (index === 0) return <NewsItem item={item} key={index} direction='vertical' />
+              else return <NewsItem item={item} key={index} direction='horizontal' />
             })
           }
         </Col>
@@ -192,8 +192,8 @@ const Homepage = () => {
           <Title title='Giải trí' />
           {
             leisureNews && leisureNews.map((item, index) => {
-              if (index === 0) return <VerticalNews item={item} key={index} />
-              else return <HorizontalNews item={item} key={index} />
+              if (index === 0) return <NewsItem item={item} key={index} direction='vertical' />
+              else return <NewsItem item={item} key={index} direction='horizontal' />
             })
           }
         </Col>
@@ -202,8 +202,8 @@ const Homepage = () => {
           <Title title='Thể thao' />
           {
             sportNews && sportNews.map((item, index) => {
-              if (index === 0) return <VerticalNews item={item} key={index} />
-              else return <HorizontalNews item={item} key={index} />
+              if (index === 0) return <NewsItem item={item} key={index} direction='vertical' />
+              else return <NewsItem item={item} key={index} direction='horizontal' />
             })
           }
         </Col>
@@ -215,8 +215,8 @@ const Homepage = () => {
           <Title title='Sức khỏe' />
           {
             healthNews && healthNews.map((item, index) => {
-              if (index === 0) return <VerticalNews item={item} key={index} />
-              else return <HorizontalNews item={item} key={index} />
+              if (index === 0) return <NewsItem item={item} key={index} direction='vertical' />
+              else return <NewsItem item={item} key={index} direction='horizontal' />
             })
           }
         </Col>
@@ -225,8 +225,8 @@ const Homepage = () => {
           <Title title='Công nghệ' />
           {
             techNews && techNews.map((item, index) => {
-              if (index === 0) return <VerticalNews item={item} key={index} />
-              else return <HorizontalNews item={item} key={index} />
+              if (index === 0) return <NewsItem item={item} key={index} direction='vertical' />
+              else return <NewsItem item={item} key={index} direction='horizontal' />
             })
           }
         </Col>
@@ -235,8 +235,8 @@ const Homepage = () => {
           <Title title='Tâm sự' />
           {
             confideNews && confideNews.map((item, index) => {
-              if (index === 0) return <VerticalNews item={item} key={index} />
-              else return <HorizontalNews item={item} key={index} />
+              if (index === 0) return <NewsItem item={item} key={index} direction='vertical' />
+              else return <NewsItem item={item} key={index} direction='horizontal' />
             })
           }
         </Col>
@@ -248,8 +248,8 @@ const Homepage = () => {
           <Title title='Xe 360' />
           {
             carNews && carNews.map((item, index) => {
-              if (index === 0) return <VerticalNews item={item} key={index} />
-              else return <HorizontalNews item={item} key={index} />
+              if (index === 0) return <NewsItem item={item} key={index} direction='vertical' />
+              else return <NewsItem item={item} key={index} direction='horizontal' />
             })
           }
         </Col>
@@ -258,8 +258,8 @@ const Homepage = () => {
           <Title title='Giáo dục' />
           {
             educationNews && educationNews.map((item, index) => {
-              if (index === 0) return <VerticalNews item={item} key={index} />
-              else return <HorizontalNews item={item} key={index} />
+              if (index === 0) return <NewsItem item={item} key={index} direction='vertical' />
+              else return <NewsItem item={item} key={index} direction='horizontal' />
             })
           }
         </Col>
@@ -268,8 +268,8 @@ const Homepage = () => {
           <Title title='SuperInfo' />
           {
             superInfoNews && superInfoNews.map((item, index) => {
-              if (index === 0) return <VerticalNews item={item} key={index} />
-              else return <HorizontalNews item={item} key={index} />
+              if (index === 0) return <NewsItem item={item} key={index} direction='vertical' />
+              else return <NewsItem item={item} key={index} direction='horizontal' />
             })
           }
         </Col>
