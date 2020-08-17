@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Title from '../components/Title';
-import { httpService } from '../services/httpService';
 import { Row, Col } from 'react-bootstrap';
+
+import Title from '../components/Title';
+import HorizontalArticle from '../components/HorizontalArticle';
+
+import { httpService } from '../services/httpService';
 import { customFunction } from '../utils';
+import Pagination from '../components/Pagination';
+import BigThumbArticle from '../components/BigThumbArticle';
+
+
 
 export default function CategoryPage() {
     let location = useLocation();
@@ -36,51 +43,39 @@ export default function CategoryPage() {
                     </div>
                 </Col>
 
-                <Col lg={4}>
-                    <img src={news[1] ? news[1].img1 : ''} width='400' height='300' alt='news' />
-                    <div>
-                        <div style={{ fontWeight: 'bold', fontSize: 20 }}>{news[1] ? news[1].title : ''}</div>
-                        <div style={{ display: 'flex' }}>
-                            <div style={{ color: '#C0C0C0' }}>{news[1] ? news[1].sourceName : ''}</div>
-                            <div className='ml-3' style={{ color: '#C0C0C0' }}>{news[1] && customFunction.countDaysBetweenNow(news[1].createTime)}</div>
-                        </div>
-                    </div>
-                </Col>
+                <BigThumbArticle item={news[1]} />
+
             </Row>
 
             <Row className='mt-3'>
-                <Col lg={4}>
-                    <img src={news[2] ? news[2].img1 : ''} width='400' height='300' alt='news' />
-                    <div>
-                        <div style={{ fontWeight: 'bold', fontSize: 20 }}>{news[2] ? news[2].title : ''}</div>
-                        <div style={{ display: 'flex' }}>
-                            <div style={{ color: '#C0C0C0' }}>{news[2] ? news[2].sourceName : ''}</div>
-                            <div className='ml-3' style={{ color: '#C0C0C0' }}>{news[2] && customFunction.countDaysBetweenNow(news[2].createTime)}</div>
-                        </div>
-                    </div>
-                </Col>
-                <Col lg={4}>
-                    <img src={news[3] ? news[3].img1 : ''} width='400' height='300' alt='news' />
-                    <div>
-                        <div style={{ fontWeight: 'bold', fontSize: 20 }}>{news[3] ? news[3].title : ''}</div>
-                        <div style={{ display: 'flex' }}>
-                            <div style={{ color: '#C0C0C0' }}>{news[3] ? news[3].sourceName : ''}</div>
-                            <div className='ml-3' style={{ color: '#C0C0C0' }}>{news[3] && customFunction.countDaysBetweenNow(news[3].createTime)}</div>
-                        </div>
-                    </div>
-                </Col>
-                <Col lg={4}>
-                    <img src={news[4] ? news[4].img1 : ''} width='400' height='300' alt='news' />
-                    <div>
-                        <div style={{ fontWeight: 'bold', fontSize: 20 }}>{news[4] ? news[4].title : ''}</div>
-                        <div style={{ display: 'flex' }}>
-                            <div style={{ color: '#C0C0C0' }}>{news[4] ? news[4].sourceName : ''}</div>
-                            <div className='ml-3' style={{ color: '#C0C0C0' }}>{news[4] && customFunction.countDaysBetweenNow(news[4].createTime)}</div>
-                        </div>
-                    </div>
-                </Col>
+                {
+                    news && news.map((item, index) => {
+                        if (index >= 2 && index <= 4) {
+                            return (
+                                <BigThumbArticle item={item} />
+                            );
+                        }
+                        else {
+                            return '';
+                        }
+                    })
+                }
             </Row>
 
+            {
+                news && news.map((item, index) => {
+                    if (index > 4) {
+                        return (
+                            <HorizontalArticle item={item} />
+                        );
+                    }
+                    else {
+                        return '';
+                    }
+                })
+            }
+
+            <Pagination />
         </div>
     )
 }

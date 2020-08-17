@@ -7,7 +7,7 @@ import './styles/NavigationMenu.css'
 import { Link } from "react-router-dom";
 import { CONST } from "../const";
 
-const NavagationItem = ({ children, cateId }) => {
+const NavigationItem = ({ children, cateId }) => {
   return (
     <Link to={{
       pathname: `/${CONST.CATE_ROUTE[cateId]}`,
@@ -28,7 +28,7 @@ const MainList = ({ mainCateList, setShowMainList }) => {
       <FontAwesomeIcon icon={faList} className='item-container' style={{ fontSize: 20 }} />
       {
         mainCateList && mainCateList.map((item, index) => (
-          <NavagationItem cateId={item.cateId} key={index}>{item.name}</NavagationItem>
+          <NavigationItem cateId={item.cateId} key={index}>{item.name}</NavigationItem>
         ))
       }
       <FontAwesomeIcon icon={faEllipsisH} className='item-container' style={{ fontSize: 20 }} onClick={() => setShowMainList(false)} />
@@ -42,7 +42,7 @@ const SubList = ({ subCateList, setShowMainList }) => {
       <FontAwesomeIcon icon={faArrowLeft} className='item-container' style={{ fontSize: 20 }} onClick={() => setShowMainList(true)} />
       {
         subCateList && subCateList.map((item, index) => (
-          <NavagationItem cateId={item.cateId} key={index}>{item.name}</NavagationItem>
+          <NavigationItem cateId={item.cateId} key={index}>{item.name}</NavigationItem>
         ))
       }
     </Row>
