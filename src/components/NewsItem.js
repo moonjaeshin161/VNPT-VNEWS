@@ -17,7 +17,7 @@ const HorizontalNews = ({ item }) => (
                     }
                 </div>
             </Row >
-            <Row style={{ fontSize: 20, fontWeight: 'bold' }}>
+            <Row className='news-title'>
                 {item.title ? item.title : ''}
             </Row>
             <Row >
@@ -30,7 +30,7 @@ const HorizontalNews = ({ item }) => (
 const VerticalNews = ({ item }) => (
     <div style={{ borderBottom: '1px solid black', marginBottom: 5 }}>
         <img alt='Anh' src={item.img1} width='100%' height='200' style={{ borderRadius: 20, marginBottom: 10 }} />
-        <div style={{ fontSize: 15, fontWeight: 'bold', lineHeight: 1, height: 8 }}>{item.title ? item.title : ''}</div>
+        <div className='news-title'>{item.title ? item.title : ''}</div>
         <Row className='ml-0 mr-0 mb-2 mt-4'>
             <div >{item.sourceName ? item.sourceName : ''}</div>
             <div className='ml-5'>

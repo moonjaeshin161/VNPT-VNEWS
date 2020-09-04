@@ -3,7 +3,6 @@ import { Row, Col } from "react-bootstrap";
 
 import { CONST } from "../const";
 
-import Title from "../components/Title";
 import MainCarousel from "../components/MainCarousel";
 
 import { httpService } from "../services/httpService";

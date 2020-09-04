@@ -1,10 +1,10 @@
 .item-container{
     border-radius: 20px;
-    justify-content: center;
     align-items: center;
     display: flex;
     color: #C0C0C0;
     font-weight: 500;
+    margin-right: 20px;
 }
 
 .item-container-title:hover{

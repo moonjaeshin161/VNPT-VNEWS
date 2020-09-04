@@ -28,7 +28,7 @@ const MainList = ({ mainCateList, setShowMainList }) => {
       <FontAwesomeIcon icon={faList} className='item-container' style={{ fontSize: 20 }} />
       {
         mainCateList && mainCateList.map((item, index) => (
-          <NavigationItem cateId={item.cateId} key={index}>{item.name}</NavigationItem>
+          <NavigationItem cateId={item.cateId} key={index} >{item.name}</NavigationItem>
         ))
       }
       <FontAwesomeIcon icon={faEllipsisH} className='item-container' style={{ fontSize: 20 }} onClick={() => setShowMainList(false)} />
@@ -42,7 +42,7 @@ const SubList = ({ subCateList, setShowMainList }) => {
       <FontAwesomeIcon icon={faArrowLeft} className='item-container' style={{ fontSize: 20 }} onClick={() => setShowMainList(true)} />
       {
         subCateList && subCateList.map((item, index) => (
-          <NavigationItem cateId={item.cateId} key={index}>{item.name}</NavigationItem>
+          <NavigationItem cateId={item.cateId} key={index} style={{ marginLeft: 20, marginRight: 40 }}>{item.name}</NavigationItem>
         ))
       }
     </Row>

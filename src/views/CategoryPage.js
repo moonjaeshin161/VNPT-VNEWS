@@ -6,7 +6,6 @@ import Title from '../components/Title';
 import { ArticleItem } from '../components/ArticleItem';
 
 import { httpService } from '../services/httpService';
-import { customFunction } from '../utils';
 import CustomPagination from '../components/CustomPagination';
 
 export default function CategoryPage() {
@@ -54,48 +53,21 @@ export default function CategoryPage() {
             <Title title={location.state.name} />
 
             <Row>
-                <Col lg={8} style={{ position: 'relative', paddingRight: 0 }}>
-                    <img src={currentNews[0] ? currentNews[0].img1 : ''} width='750' height='500' alt='news' />
-                    <div style={{ position: 'absolute', bottom: 20, left: 50 }}>
-                        <div style={{ color: 'white', fontWeight: 'bold', fontSize: 25 }}>{currentNews[0] ? currentNews[0].title : ''}</div>
-                        <div style={{ display: 'flex' }}>
-                            <div style={{ color: '#C0C0C0' }}>{currentNews[0] ? currentNews[0].sourceName : ''}</div>
-                            <div className='ml-3' style={{ color: '#C0C0C0' }}>{currentNews[0] && customFunction.countDaysBetweenNow(currentNews[0].createTime)}</div>
-                        </div>
-                    </div>
-                </Col>
-
+                <ArticleItem item={currentNews[0]} />
                 <ArticleItem item={currentNews[1]} direction='vertical' />
-
             </Row>
 
             <Row className='mt-3'>
-                {
-                    currentNews && currentNews.map((item, index) => {
-                        if (index >= 2 && index <= 4) {
-                            return (
-                                <ArticleItem item={item} direction='vertical' key={index} />
-                            );
-                        }
-                        else {
-                            return '';
-                        }
-                    })
-                }
+                <ArticleItem item={currentNews[2]} direction='vertical' />
+                <ArticleItem item={currentNews[3]} direction='vertical' />
+                <ArticleItem item={currentNews[4]} direction='vertical' />
             </Row>
 
-            {
-                currentNews && currentNews.map((item, index) => {
-                    if (index > 4) {
-                        return (
-                            <ArticleItem item={item} direction='horizontal' key={index} />
-                        );
-                    }
-                    else {
-                        return '';
-                    }
-                })
-            }
+            <ArticleItem item={currentNews[5]} direction='horizontal' />
+            <ArticleItem item={currentNews[6]} direction='horizontal' />
+            <ArticleItem item={currentNews[7]} direction='horizontal' />
+            <ArticleItem item={currentNews[8]} direction='horizontal' />
+            <ArticleItem item={currentNews[9]} direction='horizontal' />
 
             <CustomPagination totalNews={totalNews} newsPerPage={newsPerPage} onShowSizeChange={onShowSizeChange} />
         </div>
