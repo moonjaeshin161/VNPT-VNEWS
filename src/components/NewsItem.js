@@ -3,9 +3,10 @@ import { Row, Col } from 'react-bootstrap';
 
 import './styles/NewsItem.css'
 import { customFunction } from '../utils';
+import Title from './Title';
 
 const HorizontalNews = ({ item }) => (
-    <Row className='mb-3 news-container'>
+    <Row className='mb-3 news-container ml-0'>
         <img alt='Anh' src={item.img1} className='news-img' />
         <Col>
             <Row>
@@ -15,43 +16,41 @@ const HorizontalNews = ({ item }) => (
                         item.createTime && customFunction.countDaysBetweenNow(item.createTime)
                     }
                 </div>
-            </Row>
-            <Row>
+            </Row >
+            <Row style={{ fontSize: 20, fontWeight: 'bold' }}>
                 {item.title ? item.title : ''}
             </Row>
-            <Row>
+            <Row >
                 Icon
-                </Row>
-        </Col>
-    </Row>
+            </Row>
+        </Col >
+    </Row >
 )
 
 const VerticalNews = ({ item }) => (
-    <Row className='mb-3 news-container'>
-        <Row>
-            <img alt='Anh' src={item.img1} className='news-img' />
-        </Row>
-        <Row>
-            {item.title ? item.title : ''}
-        </Row>
-        <Row>
-
-            <div className='mr-3'>{item.sourceName ? item.sourceName : ''}</div>
-            <div className='mr-3'>
+    <div style={{ borderBottom: '1px solid black', marginBottom: 5 }}>
+        <img alt='Anh' src={item.img1} width='100%' height='200' style={{ borderRadius: 20, marginBottom: 10 }} />
+        <div style={{ fontSize: 15, fontWeight: 'bold', lineHeight: 1, height: 8 }}>{item.title ? item.title : ''}</div>
+        <Row className='ml-0 mr-0 mb-2 mt-4'>
+            <div >{item.sourceName ? item.sourceName : ''}</div>
+            <div className='ml-5'>
                 {
                     item.createTime && customFunction.countDaysBetweenNow(item.createTime)
-                }
-            </div>
-            <div>ICON</div>
-
+                }</div>
+            <div style={{ position: 'absolute', right: 15 }}>icon</div>
         </Row>
-    </Row>
+    </div>
 )
 
-export const NewsItem = ({ item, direction }) => (
+export const NewsItem = ({ news, direction, title }) => (
     <>
+        <Title title={title} />
         {
-            (direction === 'vertical') ? <VerticalNews item={item} /> : <HorizontalNews item={item} />
+            news && news.map((item, index) => (
+                (direction === 'vertical')
+                    ? ((index === 0) ? <VerticalNews item={item} key={index} /> : <HorizontalNews item={item} key={index} />)
+                    : <HorizontalNews item={item} key={index} />
+            ))
         }
     </>
 )

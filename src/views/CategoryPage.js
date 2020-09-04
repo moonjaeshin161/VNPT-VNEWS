@@ -7,14 +7,13 @@ import { ArticleItem } from '../components/ArticleItem';
 
 import { httpService } from '../services/httpService';
 import { customFunction } from '../utils';
-import Pagination from '../components/Pagination';
-import { CONST } from '../const';
+import CustomPagination from '../components/CustomPagination';
 
 export default function CategoryPage() {
     let location = useLocation();
     const [news, setNews] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [newsPerPage] = useState(10);
+    const [newsPerPage, setNewsPerPage] = useState(10);
     const [totalNews, setTotalNews] = useState(0);
 
     //get current news
@@ -25,11 +24,13 @@ export default function CategoryPage() {
 
     useEffect(() => {
         getNewsByCate();
-    }, [location.state.cateId]);
+    });
 
     useEffect(() => {
         getPageInfo();
     }, []);
+
+
 
     const getPageInfo = async () => {
         let params = `pageSize=1&cateId=${location.state.cateId}`;
@@ -44,7 +45,9 @@ export default function CategoryPage() {
     }
 
     //change page
-    const paginate = async (pageNumber) => setCurrentPage(pageNumber);
+    const onShowSizeChange = (current, size) => {
+        setNewsPerPage(size);
+    }
 
     return (
         <div>
@@ -94,7 +97,7 @@ export default function CategoryPage() {
                 })
             }
 
-            <Pagination totalNews={totalNews} newsPerPage={newsPerPage} paginate={paginate} cateName={CONST.CATE_ROUTE[location.state.cateId]} />
+            <CustomPagination totalNews={totalNews} newsPerPage={newsPerPage} onShowSizeChange={onShowSizeChange} />
         </div>
     )
 }
