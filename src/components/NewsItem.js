@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-import './styles/NewsItem.css'
+import './styles/NewsItem.css';
 import { customFunction } from '../utils';
 import Title from './Title';
 

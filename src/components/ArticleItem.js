@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
+import './styles/NewsItem.css';
 import { customFunction } from '../utils';
 
 const HorizontalArticle = ({ item }) => (
@@ -11,7 +12,7 @@ const HorizontalArticle = ({ item }) => (
             src={item && item.img1}
             height='200'
             width='300'
-            style={{ borderRadius: 20, borderRadius: 10 }}
+            style={{ borderRadius: 10 }}
         />
 
 
@@ -29,7 +30,7 @@ const HorizontalArticle = ({ item }) => (
                 </div>
             </Row>
             <Row>
-                <div>
+                <div className='news-title'>
                     {
                         item && item.title
                     }

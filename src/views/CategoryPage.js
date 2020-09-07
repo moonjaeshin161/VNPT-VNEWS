@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 
 import Title from '../components/Title';
 import { ArticleItem } from '../components/ArticleItem';
@@ -15,15 +15,9 @@ export default function CategoryPage() {
     const [newsPerPage, setNewsPerPage] = useState(10);
     const [totalNews, setTotalNews] = useState(0);
 
-    //get current news
-    const indexOfLastNews = currentPage * newsPerPage;
-    const indexOfFirstNews = indexOfLastNews - newsPerPage;
-    const currentNews = news.slice(indexOfFirstNews, indexOfLastNews);
-
-
     useEffect(() => {
         getNewsByCate();
-    });
+    }, []);
 
     useEffect(() => {
         getPageInfo();
@@ -40,7 +34,9 @@ export default function CategoryPage() {
     const getNewsByCate = async () => {
         let params = `page=${currentPage}&pageSize=${newsPerPage}&orderType=0&cateId=${location.state.cateId}`;
         const response = await httpService.getNewsByCate(location.state.cateId, params);
+        console.log(response);
         await setNews(response.data);
+        console.log('News: ', news)
     }
 
     //change page
@@ -48,28 +44,34 @@ export default function CategoryPage() {
         setNewsPerPage(size);
     }
 
+    const onChange = (page, pageSize) => {
+        setCurrentPage(page);
+        getNewsByCate();
+        console.log('Page: ', page, 'Page size: ', pageSize);
+    }
+
     return (
         <div>
             <Title title={location.state.name} />
 
             <Row>
-                <ArticleItem item={currentNews[0]} />
-                <ArticleItem item={currentNews[1]} direction='vertical' />
+                <ArticleItem item={news[0]} />
+                <ArticleItem item={news[1]} direction='vertical' />
             </Row>
 
             <Row className='mt-3'>
-                <ArticleItem item={currentNews[2]} direction='vertical' />
-                <ArticleItem item={currentNews[3]} direction='vertical' />
-                <ArticleItem item={currentNews[4]} direction='vertical' />
+                <ArticleItem item={news[2]} direction='vertical' />
+                <ArticleItem item={news[3]} direction='vertical' />
+                <ArticleItem item={news[4]} direction='vertical' />
             </Row>
 
-            <ArticleItem item={currentNews[5]} direction='horizontal' />
-            <ArticleItem item={currentNews[6]} direction='horizontal' />
-            <ArticleItem item={currentNews[7]} direction='horizontal' />
-            <ArticleItem item={currentNews[8]} direction='horizontal' />
-            <ArticleItem item={currentNews[9]} direction='horizontal' />
+            <ArticleItem item={news[5]} direction='horizontal' />
+            <ArticleItem item={news[6]} direction='horizontal' />
+            <ArticleItem item={news[7]} direction='horizontal' />
+            <ArticleItem item={news[8]} direction='horizontal' />
+            <ArticleItem item={news[9]} direction='horizontal' />
 
-            <CustomPagination totalNews={totalNews} newsPerPage={newsPerPage} onShowSizeChange={onShowSizeChange} />
+            <CustomPagination totalNews={totalNews} newsPerPage={newsPerPage} onShowSizeChange={onShowSizeChange} onChange={onChange} />
         </div>
     )
 }
