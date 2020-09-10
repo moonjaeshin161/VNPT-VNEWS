@@ -107,6 +107,63 @@ export const httpService = {
         };
 
         return fetch(url, options).then(res => res.json());
-    }
+    },
+
+    getNewsById: async (newsId) => {
+        const params = `id=${newsId}`;
+        let time = Date.now();
+        const unharshedCode = `${params}#${CONST.SECURE_CODE}@${time}!web`;
+        const harshedCode = sha256(md5(unharshedCode));
+
+        const url = API.GET_NEWS + `?${params}`;
+
+        const options = {
+            method: "post",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                RequestTime: time,
+                Authorization: harshedCode,
+                Channel: "web"
+            }
+        };
+
+        return fetch(url, options).then(res => res.json());
+    },
+
+    getRelatedList: async (newsId, cateId, tags) => {
+        let params = `id=${newsId}&cateId=${cateId}&contentType=0&tags=${tags}`;
+        let time = Date.now();
+        let body = {
+            id: parseInt(newsId),
+            cateId,
+            tags,
+            contentType: 1,
+            pageSize: 10,
+        };
+
+        const unharshedCode = `${params}#${CONST.SECURE_CODE}@${time}!web`;
+        const harshedCode = sha256(md5(unharshedCode));
+
+        const url = API.GET_RELATED_LIST;
+
+
+
+        console.log('Body: ', JSON.stringify(body))
+
+        const options = {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json",
+                RequestTime: time,
+                Authorization: harshedCode,
+                Channel: "web"
+            },
+            body: JSON.stringify(body)
+        };
+
+        return fetch(url, options).then(res => res.json());
+    },
+
 
 }

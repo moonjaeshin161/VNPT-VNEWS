@@ -3,8 +3,9 @@ import { Row, Col } from 'react-bootstrap';
 
 import './styles/NewsItem.css';
 import { customFunction } from '../utils';
+import { Link } from 'react-router-dom';
 
-const HorizontalArticle = ({ item }) => (
+const HorizontalArticle = ({ item, url }) => (
     <Row className='mt-3 mb-3 pb-3' style={{ borderBottom: '1px solid black' }}>
 
         <img
@@ -30,11 +31,11 @@ const HorizontalArticle = ({ item }) => (
                 </div>
             </Row>
             <Row>
-                <div className='news-title'>
+                <Link to={`${url}/${item ? item.newsId : ''}`} className='news-title'>
                     {
                         item && item.title
                     }
-                </div>
+                </Link>
             </Row>
             <Row style={{ position: 'absolute', bottom: 10 }}>
                 <div>ICON</div>
@@ -71,12 +72,12 @@ const BigArticle = ({ item }) => (
     </Col>
 )
 
-export const ArticleItem = ({ direction, item }) => (
+export const ArticleItem = ({ direction, item, url }) => (
     <>
         {
-            (direction === 'vertical') ? <VerticalArticle item={item} />
+            (direction === 'vertical') ? <VerticalArticle item={item} url={url} />
 
-                : (direction === 'horizontal') ? <HorizontalArticle item={item} /> : <BigArticle item={item} />
+                : (direction === 'horizontal') ? <HorizontalArticle item={item} url={url} /> : <BigArticle item={item} />
         }
     </>
 );

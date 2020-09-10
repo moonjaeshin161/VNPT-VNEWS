@@ -34,6 +34,21 @@ export const CONST = {
         41: 'video',
         42: 'tin-anh',
         3811: 'tam-su'
-
+    },
+    CATE_NAME: {
+        'superinfo': 'SuperInfo',
+        'xa-hoi': 'Xã hội',
+        'the-gioi': 'Thế giới',
+        'giao-duc': "Giáo Dục",
+        'kinh-te': 'Kinh tế',
+        'giai-tri': 'Giải trí',
+        'the-thao': 'Thể thao',
+        'cong-nghe': 'Công nghệ',
+        'xe-360': 'Xe 360',
+        'suc-khoe': 'Sức khỏe',
+        'doi-song': 'Đời sống',
+        'video': 'Video',
+        'tin-anh': 'Tin ảnh',
+        'tam-su': 'Tâm sự'
     }
 }

@@ -1,0 +1,12 @@
+.tag-item{
+    color: gray;
+    margin-right: 10px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+.tag-item:hover{
+    background-color: gray;
+    color: white
+}

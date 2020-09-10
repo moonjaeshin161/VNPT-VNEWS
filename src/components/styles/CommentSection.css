@@ -1,0 +1,28 @@
+.comment-container{
+    border: 1px solid gray;
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding-left: 10px ;    
+    padding-right: 10px;
+    border-radius: 20px;
+    display: flex;
+    height: 80px;
+    width: 800px;
+    align-items: flex-start;
+    padding-top:15px;
+    padding-left:15px
+}
+
+.comment-container:hover{
+    border: 1px solid blue;
+    
+}
+
+.comment-input{
+    border: none;
+    border-width: 0; 
+}
+
+.comment-input:focus{
+    outline: none;
+}

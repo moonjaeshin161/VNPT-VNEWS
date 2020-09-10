@@ -15,6 +15,7 @@ import NavigationMenu from "./components/NavigationMenu";
 import CategoryPage from "./views/CategoryPage";
 
 import { httpService } from "./services/httpService";
+import DetailsPage from "./views/DetailsPage";
 
 const App = () => {
 
@@ -46,8 +47,11 @@ const App = () => {
           <Route exact path='/' >
             <Homepage />
           </Route>
-          <Route path='/:cate'>
+          <Route exact path='/:cate'>
             <CategoryPage />
+          </Route>
+          <Route path={`/:cate/:newsId`}>
+            <DetailsPage />
           </Route>
         </Switch>
 

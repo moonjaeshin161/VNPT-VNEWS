@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList, faEllipsisH, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faList, faEllipsisH, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import './styles/NavigationMenu.css'
 import { Link } from "react-router-dom";
@@ -9,13 +9,7 @@ import { CONST } from "../const";
 
 const NavigationItem = ({ children, cateId }) => {
   return (
-    <Link to={{
-      pathname: `/${CONST.CATE_ROUTE[cateId]}`,
-      state: {
-        name: children,
-        cateId
-      }
-    }}
+    <Link to={`/${CONST.CATE_ROUTE[cateId]}`}
     >
       <div className='item-container item-container-title'> {children}</div>
     </Link>
