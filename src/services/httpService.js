@@ -165,5 +165,23 @@ export const httpService = {
         return fetch(url, options).then(res => res.json());
     },
 
+    getCarouselNews: async () => {
+        const params = 'page=1&pageSize=5&orderType=0';
+        let time = Date.now();
+        const unharshedCode = `${params}#${CONST.SECURE_CODE}@${time}!web`;
+        const harshedCode = sha256(md5(unharshedCode));
 
+        const url = API.GET_NEWS_LIST + `?${params}`;
+
+        const options = {
+            method: "post",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                RequestTime: time,
+                Authorization: harshedCode,
+                Channel: "web"
+            }
+        };
+        return fetch(url, options).then(res => res.json());
+    }
 }

@@ -1,47 +1,27 @@
 import React from "react";
-import { Carousel } from "react-bootstrap";
+import './styles/MainCarousel.css'
 
-const MainCarousel = () => {
+const MainCarousel = ({ news }) => {
   return (
-    <Carousel className="w-30">
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://picsum.photos/400/400"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://picsum.photos/400/400"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://picsum.photos/400/400"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+    <div id="myCarousel" className="carousel slide border" data-ride="carousel">
+      <ol className="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      {
+        console.log('News', news)
+      }
+      <div className="carousel-inner">
+        {
+          news && news.map((item, index) => (
+            <div className="carousel-item" key={index}>
+              <img className="d-block w-100" src={item.img1} alt="Cat" />
+            </div>
+          ))
+        }
+      </div>
+    </div>
   );
 };
 

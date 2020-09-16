@@ -12,6 +12,7 @@ import { MediaNews } from "../components/MediaNews";
 const Homepage = () => {
 
   const [trendingNews, setTrendingNews] = useState([]);
+  const [carouselNews, setCarouselNews] = useState([]);
   const [latestNews, setLatestNews] = useState([]);
   const [socialNews, setSocialNews] = useState([]);
   const [economicNews, setEconomicNews] = useState([]);
@@ -29,23 +30,14 @@ const Homepage = () => {
   const [superInfoNews, setSuperInfoNews] = useState([]);
 
   useEffect(() => {
-    getTrendingNews();
-    getLatestNews();
-    getNewsByCate();
+    getNews();
   }, []);
 
-  const getTrendingNews = async () => {
-    const response = await httpService.getTrendingNews();
-    await setTrendingNews(response.data);
-  }
-
-  const getLatestNews = async () => {
-    const response = await httpService.getLatestNews();
-    await setLatestNews(response.data);
-  }
-
-  const getNewsByCate = async () => {
+  const getNews = async () => {
     const [
+      trendingResponse,
+      latestResponse,
+      carouselResponse,
       socialResponse,
       economyResponse,
       lifestyleResponse,
@@ -61,6 +53,9 @@ const Homepage = () => {
       educationResponse,
       superInfoResponse
     ] = await Promise.all([
+      httpService.getTrendingNews(),
+      httpService.getLatestNews(),
+      httpService.getCarouselNews(),
       httpService.getNewsByCate(CONST.CATE_ID.XA_HOI),
       httpService.getNewsByCate(CONST.CATE_ID.KINH_TE),
       httpService.getNewsByCate(CONST.CATE_ID.DOI_SONG),
@@ -77,22 +72,23 @@ const Homepage = () => {
       httpService.getNewsByCate(CONST.CATE_ID.SUPER_INFO)
     ]);
 
-    await Promise.all([
-      setSocialNews(socialResponse.data),
-      setEconomicNews(economyResponse.data),
-      setLifestyleNews(lifestyleResponse.data),
-      setVideoNews(videoResponse.data),
-      setImageNews(imageResponse.data),
-      setWorldNews(worldResponse.data),
-      setLeisureNews(leisureResponse.data),
-      setSportNews(sportResponse.data),
-      setHealthNews(healthResponse.data),
-      setTechNews(techResponse.data),
-      setConfideNews(confideResponse.data),
-      setCarNews(carResponse.data),
-      setEducationNews(educationResponse.data),
-      setSuperInfoNews(superInfoResponse.data),
-    ]);
+    setTrendingNews(trendingResponse.data);
+    setLatestNews(latestResponse.data);
+    setCarouselNews(carouselResponse.data);
+    setSocialNews(socialResponse.data);
+    setEconomicNews(economyResponse.data);
+    setLifestyleNews(lifestyleResponse.data);
+    setVideoNews(videoResponse.data);
+    setImageNews(imageResponse.data);
+    setWorldNews(worldResponse.data);
+    setLeisureNews(leisureResponse.data);
+    setSportNews(sportResponse.data);
+    setHealthNews(healthResponse.data);
+    setTechNews(techResponse.data);
+    setConfideNews(confideResponse.data);
+    setCarNews(carResponse.data);
+    setEducationNews(educationResponse.data);
+    setSuperInfoNews(superInfoResponse.data);
   }
 
   return (
@@ -100,7 +96,7 @@ const Homepage = () => {
       <Row className="main-content">
 
         <Col lg={8}>
-          <MainCarousel />
+          <MainCarousel news={carouselNews} />
           <NewsItem news={trendingNews} direction='horizontal' title='Xu hướng' />
           <NewsItem news={latestNews} direction='horizontal' title='Mới nhất' />
           <NewsItem news={socialNews} direction='horizontal' title='Xã hội' />
