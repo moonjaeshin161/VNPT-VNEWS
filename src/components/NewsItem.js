@@ -1,9 +1,11 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './styles/NewsItem.css';
 import { customFunction } from '../utils';
 import Title from './Title';
+import { faCommentDots, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 const HorizontalNews = ({ item }) => (
     <Row className='mb-3 news-container ml-0'>
@@ -20,8 +22,12 @@ const HorizontalNews = ({ item }) => (
             <Row className='news-title'>
                 {item.title ? item.title : ''}
             </Row>
-            <Row >
-                Icon
+            <Row className="align-items-center">
+                <div>0</div>
+                <FontAwesomeIcon icon={faThumbsUp} className="news-icon" />
+                <div>0</div>
+                <FontAwesomeIcon icon={faCommentDots} className="news-icon" />
+
             </Row>
         </Col >
     </Row >
@@ -37,7 +43,12 @@ const VerticalNews = ({ item }) => (
                 {
                     item.createTime && customFunction.countDaysBetweenNow(item.createTime)
                 }</div>
-            <div style={{ position: 'absolute', right: 15 }}>icon</div>
+            <div className="d-flex align-items-center" style={{ position: 'absolute', right: 15 }}>
+                <div>0</div>
+                <FontAwesomeIcon icon={faThumbsUp} className="news-icon" />
+                <div>0</div>
+                <FontAwesomeIcon icon={faCommentDots} className="news-icon" />
+            </div>
         </Row>
     </div>
 )

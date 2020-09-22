@@ -7,10 +7,13 @@
     margin-right: 20px;
 }
 
+.item-container-title{
+    font-size: 20px;
+}
+
 .item-container-title:hover{
     background-color: 	#1E90FF;
     padding: 2px 8px;
     color: white;
-    cursor: pointer;
-    
+    cursor: pointer;    
 }

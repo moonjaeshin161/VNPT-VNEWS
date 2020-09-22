@@ -4,6 +4,8 @@ import { Row, Col } from 'react-bootstrap';
 import './styles/NewsItem.css';
 import { customFunction } from '../utils';
 import { Link } from 'react-router-dom';
+import { faCommentDots, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const HorizontalArticle = ({ item, url }) => (
     <Row className='mt-3 mb-3 pb-3' style={{ borderBottom: '1px solid black' }}>
@@ -15,7 +17,6 @@ const HorizontalArticle = ({ item, url }) => (
             width='300'
             style={{ borderRadius: 10 }}
         />
-
 
         <Col lg={8} className='ml-3'>
             <Row>
@@ -37,8 +38,11 @@ const HorizontalArticle = ({ item, url }) => (
                     }
                 </Link>
             </Row>
-            <Row style={{ position: 'absolute', bottom: 10 }}>
-                <div>ICON</div>
+            <Row className="align-items-center" style={{ position: 'absolute', bottom: 10 }}>
+                <div>0</div>
+                <FontAwesomeIcon icon={faThumbsUp} className="news-icon" />
+                <div>0</div>
+                <FontAwesomeIcon icon={faCommentDots} className="news-icon" />
             </Row>
         </Col>
     </Row>

@@ -38,11 +38,12 @@ const App = () => {
     <Router>
       <Container>
         <Header />
+
         <NavigationMenu
           className='navigation-menu'
           mainCateList={mainCateList}
-          subCateList={subCateList} />
-
+          subCateList={subCateList}
+        />
         <Switch>
           <Route exact path='/' >
             <Homepage />
@@ -50,7 +51,10 @@ const App = () => {
           <Route exact path='/:cate'>
             <CategoryPage />
           </Route>
-          <Route path={`/:cate/:newsId`}>
+          <Route exact path='/news/news/:id'>
+            <DetailsPage />
+          </Route>
+          <Route exact path='/:cate/:newsId'>
             <DetailsPage />
           </Route>
         </Switch>

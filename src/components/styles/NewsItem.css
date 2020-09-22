@@ -19,3 +19,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.news-icon{
+    color:gray;
+    margin-right:10px;
+    margin-left:5px
+}

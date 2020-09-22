@@ -16,6 +16,7 @@ export default function DetailsPage() {
         let didCancel = false;
         async function getNews() {
             try {
+                console.log('ID: ', newsId)
                 const response = await httpService.getNewsById(newsId);
                 const data = await response.data[0];
                 setNews(data);

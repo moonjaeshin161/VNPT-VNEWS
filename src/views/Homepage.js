@@ -8,6 +8,7 @@ import MainCarousel from "../components/MainCarousel";
 import { httpService } from "../services/httpService";
 import { NewsItem } from "../components/NewsItem";
 import { MediaNews } from "../components/MediaNews";
+import { useRouteMatch } from "react-router-dom";
 
 const Homepage = () => {
 
@@ -28,6 +29,7 @@ const Homepage = () => {
   const [carNews, setCarNews] = useState([]);
   const [educationNews, setEducationNews] = useState([]);
   const [superInfoNews, setSuperInfoNews] = useState([]);
+  let { url } = useRouteMatch();
 
   useEffect(() => {
     getNews();
@@ -96,7 +98,8 @@ const Homepage = () => {
       <Row className="main-content">
 
         <Col lg={8}>
-          <MainCarousel news={carouselNews} />
+
+          <MainCarousel news={carouselNews} url={url} />
           <NewsItem news={trendingNews} direction='horizontal' title='Xu hướng' />
           <NewsItem news={latestNews} direction='horizontal' title='Mới nhất' />
           <NewsItem news={socialNews} direction='horizontal' title='Xã hội' />

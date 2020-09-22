@@ -18,7 +18,7 @@ const NavigationItem = ({ children, cateId }) => {
 
 const MainList = ({ mainCateList, setShowMainList }) => {
   return (
-    <Row className='align-items-center justify-content-between' style={{ height: 40 }}>
+    <Row className='align-items-center justify-content-between' style={{ height: 40, marginBottom: 10 }}>
       <FontAwesomeIcon icon={faList} className='item-container' style={{ fontSize: 20 }} />
       {
         mainCateList && mainCateList.map((item, index) => (
@@ -32,7 +32,7 @@ const MainList = ({ mainCateList, setShowMainList }) => {
 
 const SubList = ({ subCateList, setShowMainList }) => {
   return (
-    <Row className='align-items-center' style={{ height: 40 }}>
+    <Row className='align-items-center' style={{ height: 40, marginBottom: 10 }}>
       <FontAwesomeIcon icon={faArrowLeft} className='item-container' style={{ fontSize: 20 }} onClick={() => setShowMainList(true)} />
       {
         subCateList && subCateList.map((item, index) => (
