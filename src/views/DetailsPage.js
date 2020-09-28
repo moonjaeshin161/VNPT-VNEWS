@@ -5,6 +5,8 @@ import { httpService } from '../services/httpService';
 import DetailsTitle from '../components/DetailsTitle';
 import DetailsFooter from '../components/DetailsFooter';
 
+import './styles/DetailsPage.css'
+
 export default function DetailsPage() {
     let { newsId } = useParams();
     let cateId = '';

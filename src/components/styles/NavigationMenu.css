@@ -17,3 +17,18 @@
     color: white;
     cursor: pointer;    
 }
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    margin-bottom:1000px;
+    font-size: 100px;
+}
+
+.item-icon{
+    fontSize: 30px;
+}
+
+.item-icon:hover .dropdown-content {
+  display: block;
+}

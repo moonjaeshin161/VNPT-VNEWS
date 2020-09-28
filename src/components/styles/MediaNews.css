@@ -1,0 +1,7 @@
+.player-item{
+    border-radius: 10px;
+}
+
+.player-item:focus{
+    outline-style: none;
+}

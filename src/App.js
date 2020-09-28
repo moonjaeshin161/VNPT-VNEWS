@@ -51,10 +51,7 @@ const App = () => {
           <Route exact path='/:cate'>
             <CategoryPage />
           </Route>
-          <Route exact path='/news/news/:id'>
-            <DetailsPage />
-          </Route>
-          <Route exact path='/:cate/:newsId'>
+          <Route exact path='/news/:newsId'>
             <DetailsPage />
           </Route>
         </Switch>

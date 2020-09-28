@@ -6,6 +6,7 @@ import './styles/NewsItem.css';
 import { customFunction } from '../utils';
 import Title from './Title';
 import { faCommentDots, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const HorizontalNews = ({ item }) => (
     <Row className='mb-3 news-container ml-0'>
@@ -19,8 +20,10 @@ const HorizontalNews = ({ item }) => (
                     }
                 </div>
             </Row >
-            <Row className='news-title'>
-                {item.title ? item.title : ''}
+            <Row className="mb-2">
+                <Link to={`/news/${item.newsId}`} className='news-title' >
+                    {item.title ? item.title : ''}
+                </Link>
             </Row>
             <Row className="align-items-center">
                 <div>0</div>
@@ -36,7 +39,7 @@ const HorizontalNews = ({ item }) => (
 const VerticalNews = ({ item }) => (
     <div style={{ borderBottom: '1px solid black', marginBottom: 5 }}>
         <img alt='Anh' src={item.img1} width='100%' height='200' style={{ borderRadius: 20, marginBottom: 10 }} />
-        <div className='news-title'>{item.title ? item.title : ''}</div>
+        <Link to={`/news/${item.newsId}`} className='news-title'>{item.title ? item.title : ''}</Link>
         <Row className='ml-0 mr-0 mb-2 mt-4'>
             <div >{item.sourceName ? item.sourceName : ''}</div>
             <div className='ml-5'>

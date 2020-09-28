@@ -2,15 +2,22 @@ import React from 'react';
 import Title from './Title';
 import { customFunction } from '../utils';
 import { Row } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCommentDots, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import ReactHlsPlayer from 'react-hls-player';
+
+import './styles/MediaNews.css'
 
 const VideoNews = ({ item }) => (
     <div style={{ borderBottom: '1px solid black', marginBottom: 15 }}>
-        <img
-            style={{ borderRadius: 20 }}
-            src={item.img1}
+        <ReactHlsPlayer
+            url={item.content}
+            autoplay={false}
+            controls={true}
             width='100%'
-            height='200'
-            alt='news' />
+            height={200}
+            className="player-item"
+        />
         <div style={{ fontWeight: 'bold', fontSize: 15 }}>{item.title}</div>
         <Row className='ml-0 mr-0 mb-2'>
             <div >{item.sourceName ? item.sourceName : ''}</div>
@@ -18,7 +25,12 @@ const VideoNews = ({ item }) => (
                 {
                     item.createTime && customFunction.countDaysBetweenNow(item.createTime)
                 }</div>
-            <div style={{ position: 'absolute', right: 15 }}>icon</div>
+            <Row className="align-items-center" style={{ position: 'absolute', right: 10 }}>
+                <div>0</div>
+                <FontAwesomeIcon icon={faThumbsUp} className="news-icon" />
+                <div>0</div>
+                <FontAwesomeIcon icon={faCommentDots} className="news-icon" />
+            </Row>
         </Row>
     </div>
 )

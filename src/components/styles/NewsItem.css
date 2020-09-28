@@ -13,11 +13,13 @@
 .news-title{
     font-size: 20px;
     font-weight: bold;
-    max-height: 3.6em;
-    line-height: 1.8em;
-    text-overflow: ellipsis;
     overflow: hidden;
-    text-overflow: ellipsis;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+   margin-top: 10px;
+   color:black
 }
 
 .news-icon{

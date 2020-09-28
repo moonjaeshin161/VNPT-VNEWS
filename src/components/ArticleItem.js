@@ -32,7 +32,7 @@ const HorizontalArticle = ({ item, url }) => (
                 </div>
             </Row>
             <Row>
-                <Link to={`${url}/${item ? item.newsId : ''}`} style={{ color: 'black', fontWeight: 'bold', fontSize: 20 }} className='news-title'>
+                <Link to={`/news/${item ? item.newsId : ''}`} style={{ color: 'black', fontWeight: 'bold', fontSize: 20 }} className='news-title'>
                     {
                         item && item.title
                     }
@@ -53,7 +53,7 @@ const VerticalArticle = ({ item, url }) => (
     <Col lg={4}>
         <img src={item ? item.img1 : ''} width='100%' height='250' alt='news' style={{ borderRadius: 10 }} />
         <div>
-            <Link to={`${url}/${item ? item.newsId : ''}`} style={{ fontWeight: 'bold', fontSize: 20, color: 'black' }} className='news-title'>
+            <Link to={`/news/${item ? item.newsId : ''}`} style={{ fontWeight: 'bold', fontSize: 20, color: 'black' }} className='news-title'>
                 {
                     item && item.title
                 }
@@ -71,7 +71,7 @@ const BigArticle = ({ item, url }) => (
     <Col lg={8} style={{ position: 'relative', paddingRight: 0 }}>
         <img src={item ? item.img1 : ''} width='750' height='500' alt='news' style={{ borderRadius: 10 }} />
         <div style={{ position: 'absolute', bottom: 20, left: 50 }}>
-            <Link to={`${url}/${item ? item.newsId : ''}`} style={{ color: 'white', fontWeight: 'bold', fontSize: 25 }} className='news-title'>
+            <Link to={`/news/${item ? item.newsId : ''}`} style={{ color: 'white', fontWeight: 'bold', fontSize: 25 }} className='news-title'>
                 {
                     item && item.title
                 }

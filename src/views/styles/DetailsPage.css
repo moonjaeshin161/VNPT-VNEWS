@@ -1,0 +1,35 @@
+.cms-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cms-photo {
+    width: 80%;
+}
+
+.fig{
+    font-size:16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+p{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.cms-author{
+    font-size: 20px;
+    margin-top: 5px;
+    font-weight: bolder;
+}
+
+.article-photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}

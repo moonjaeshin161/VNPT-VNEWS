@@ -20,8 +20,10 @@ const MainCarousel = ({ news }) => {
           news && news.map((item, index) => (
 
             <Link
-              to={`/news/news/${item.newsId}`}
-              className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index} style={{ position: 'relative', marginBottom: 90 }}>
+              to={`/news/${item.newsId}`}
+              className={`carousel-item ${index === 0 ? 'active' : ''}`}
+              key={index}
+              style={{ position: 'relative', marginBottom: 90, color: 'black ' }}>
               <img className="d-block w-100" src={item.img1} alt="2" />
               <div className="carousel-title" style={{ position: 'absolute' }}>{item.title}</div>
 
