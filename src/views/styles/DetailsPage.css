@@ -1,5 +1,5 @@
-.cms-body{
-    display: flex;
+.cms-body , figure{
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;

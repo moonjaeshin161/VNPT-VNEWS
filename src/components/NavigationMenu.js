@@ -3,9 +3,11 @@ import { Container, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList, faEllipsisH, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-import './styles/NavigationMenu.css'
 import { Link } from "react-router-dom";
 import { CONST } from "../const";
+
+import './styles/NavigationMenu.css'
+
 
 const NavigationItem = ({ children, cateId }) => {
   return (
@@ -16,9 +18,21 @@ const NavigationItem = ({ children, cateId }) => {
   );
 }
 
+const DropdownMenu = () => {
+  return (
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  )
+}
+
 const MainList = ({ mainCateList, setShowMainList }) => {
   return (
-    <Row className='align-items-center justify-content-between' style={{ height: 40, marginBottom: 10 }}>
+    <Row className='menu-container align-items-center justify-content-between' style={{ height: 40, marginBottom: 10 }}>
       <FontAwesomeIcon icon={faList} className='item-container item-icon' />
       {
         mainCateList && mainCateList.map((item, index) => (
@@ -32,7 +46,7 @@ const MainList = ({ mainCateList, setShowMainList }) => {
 
 const SubList = ({ subCateList, setShowMainList }) => {
   return (
-    <Row className='align-items-center' style={{ height: 40, marginBottom: 10 }}>
+    <Row className='menu-container align-items-center' style={{ height: 40 }}>
       <FontAwesomeIcon icon={faArrowLeft} className='item-container item-icon' onClick={() => setShowMainList(true)} />
       {
         subCateList && subCateList.map((item, index) => (
@@ -48,7 +62,8 @@ const NavigationMenu = ({ mainCateList, subCateList }) => {
   const [showMainList, setShowMainList] = useState(true);
 
   return (
-    <Container style={{ position: 'relative' }}>
+    <Container className="navigation-menu" style={{ position: 'relative' }}>
+      <DropdownMenu className="dropdown-menu" />
       {
         showMainList
           ? <MainList mainCateList={mainCateList} setShowMainList={setShowMainList} />

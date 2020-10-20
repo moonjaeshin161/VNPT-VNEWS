@@ -7,7 +7,7 @@ import './styles/SearchBar.css'
 
 export default function SearchBar() {
     return (
-        <Row className='justify-content-center align-items-center'>
+        <Row className='search-bar-container justify-content-center align-items-center' style={{}}>
             <Row className='input-container'>
                 <input className='search-input' placeholder='Tìm kiếm' />
                 <FontAwesomeIcon icon={faSearch} style={{ fontSize: 20, color: 'gray' }} />

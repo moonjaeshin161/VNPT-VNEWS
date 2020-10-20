@@ -1,0 +1,20 @@
+.header-container{
+    position: relative !important;
+    align-items: center;
+}
+
+@media (max-width: 1200px) { 
+.menu-icon-item{
+    display: block !important;
+    font-size: 25px !important;
+    margin-right: 10px
+}
+}
+
+@media (max-width: 576px) { 
+.header-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+}

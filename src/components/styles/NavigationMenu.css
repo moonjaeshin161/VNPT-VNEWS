@@ -26,9 +26,35 @@
 }
 
 .item-icon{
-    fontSize: 30px;
+    font-size: 24px !important;
 }
 
-.item-icon:hover .dropdown-content {
-  display: block;
+.navigation-menu{
+    display: block;
+    margin: 0;
 }
+
+.dropdown-menu{
+    display: none !important;
+}
+
+.search-bar-container{
+    position: absolute;
+    right: 0px;
+    display: block;
+}
+
+
+
+@media (max-width: 1200px) { 
+.navigation-menu{
+    display: none;
+}
+}
+
+@media (max-width: 576px) { 
+.search-bar-container{
+    display: none !important;
+}
+}
+
